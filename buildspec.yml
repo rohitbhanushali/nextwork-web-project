@@ -10,6 +10,8 @@ phases:
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 253490766018 --region ap-south-1 --query authorizationToken --output text`
       - echo "Checking Maven version..."
       - mvn -version
+      - echo "Checking if settings.xml exists..."
+      - ls -l settings.xml || echo "settings.xml NOT FOUND!"
   build:
     commands:
       - echo Build started on `date`
